@@ -134,18 +134,22 @@ class _UserProfileState extends State<UserProfile> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    border: Border.all(color: pinkcolor, width: 2),
-                    borderRadius: BorderRadius.circular(10)),
+                  border: Border.all(color: pinkcolor, width: 2),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 width: 66,
                 height: 66,
                 child: Padding(
                   padding: EdgeInsets.all(2),
                   child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      child: FittedBox(
-                        fit: BoxFit.cover,
-                        child: Image.asset('images/profile.jpg'),
-                      )),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: Image.asset('images/profile.jpg'),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
