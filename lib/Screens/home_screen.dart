@@ -31,33 +31,6 @@ class HomePage extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: ElevatedButton(
-                    onPressed: () {
-                      showModalBottomSheet(
-                          barrierColor: Colors.transparent,
-                          backgroundColor: Colors.transparent,
-                          isScrollControlled: true,
-                          context: context,
-                          builder: (BuildContext context) {
-                            return Padding(
-                              padding: EdgeInsets.only(
-                                  bottom:
-                                      MediaQuery.of(context).viewInsets.bottom),
-                              child: DraggableScrollableSheet(
-                                  initialChildSize: 0.5,
-                                  maxChildSize: 0.65,
-                                  minChildSize: 0.2,
-                                  builder: (context, controller) {
-                                    return SharedBottomShit(
-                                      controller: controller,
-                                    );
-                                  }),
-                            );
-                          });
-                    },
-                    child: Text('click me')),
-              ),
-              SliverToBoxAdapter(
                 child: Line_story(),
               ),
               SliverList(
@@ -75,7 +48,7 @@ class HomePage extends StatelessWidget {
                       SizedBox(
                         height: 0,
                       ),
-                      PostUser()
+                      PostUser(context)
                     ],
                   );
                 }, childCount: 10),
@@ -116,24 +89,24 @@ class HomePage extends StatelessWidget {
       shrinkWrap: true,
       itemCount: 9,
       itemBuilder: (BuildContext context, int index) {
-        return Complet_post();
+        return Complet_post(context);
       },
     );
   }
 
-  Column Complet_post() {
+  Column Complet_post(context) {
     return Column(
       children: [
         SizedBox(
           height: 32,
         ),
         Userdata(),
-        PostUser()
+        PostUser(context)
       ],
     );
   }
 
-  Center PostUser() {
+  Center PostUser(context) {
     return Center(
       child: Container(
         width: 394,
@@ -205,11 +178,40 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          width: 40,
+                          width: 25,
                         ),
-                        Image.asset('images/icon_share.png'),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromRGBO(255, 255, 255, 0.2)),
+                          onPressed: () {
+                            showModalBottomSheet(
+                                barrierColor: Colors.transparent,
+                                backgroundColor: Colors.transparent,
+                                isScrollControlled: true,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(
+                                        bottom: MediaQuery.of(context)
+                                            .viewInsets
+                                            .bottom),
+                                    child: DraggableScrollableSheet(
+                                        initialChildSize: 0.5,
+                                        maxChildSize: 0.65,
+                                        minChildSize: 0.2,
+                                        builder: (context, controller) {
+                                          return SharedBottomShit(
+                                            controller: controller,
+                                          );
+                                        }),
+                                  );
+                                });
+                          },
+                          child: Image.asset('images/icon_share.png'),
+                        ),
                         SizedBox(
-                          width: 54,
+                          width: 35,
                         ),
                         Image.asset('images/icon_save.png'),
                       ],

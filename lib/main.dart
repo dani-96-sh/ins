@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Screens/ActivityStatus.dart';
 import 'package:flutter_application_1/Screens/MainScreen.dart';
-import 'package:flutter_application_1/Screens/Search_screen.dart';
-import 'package:flutter_application_1/Screens/UserProScreen.dart';
-import 'package:flutter_application_1/Screens/home_screen.dart';
-import 'package:flutter_application_1/Screens/login_screen.dart';
-import 'package:flutter_application_1/Screens/post_content.dart';
-import 'package:flutter_application_1/Screens/switch_screen.dart';
 import 'package:flutter_application_1/constant/color.dart';
 
 void main(List<String> args) {
